@@ -8,20 +8,20 @@ public:
     dp[0]=0;
     dp[amount]= solve(coins, amount , dp);
     // cout<<dp[amount]<<endl;
-    return (dp[amount]==1000000009)?-1:dp[amount];
+    return (dp[amount]==INT_MAX-1)?-1:dp[amount];
     }
     int solve(vector<int>& coins, int n, vector<int>& dp ){
       if(n==0)
       return 0;
       if(dp[n]!=-1) return dp[n];
-      int r=1000000009;
+      int r=INT_MAX-1;
       for(int i=0;i<coins.size();i++){
         if(n>=coins[i]){
           int x=1+solve(coins,n-coins[i],dp);
           r=min(r,x);
         }
       }
-      cout<<r<<"||";
+      // cout<<r<<"||";
       dp[n]=r;
       return dp[n];
     }
@@ -29,7 +29,7 @@ public:
 };
 
 int main(){
-  vector<int> coins={100,2,3,5,8};
+  vector<int> coins={100,2,3,5,7};
   Solution s;
   cout<<s.coinChange(coins,11);
 }
