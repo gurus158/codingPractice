@@ -17,7 +17,7 @@ public:
     }
 };
 int main(){
-std::vector<int> v={7,1,5,3,6,4};
+std::vector<int> v={10,75,5,65,22};
 Solution s;
 cout<<s.maxProfit(v);
 }
