@@ -1,0 +1,44 @@
+#!/bin/bash
+START_X=960
+START_Y=540
+VELOCITY=10
+xdotool mousemove $START_X $START_Y
+#echo "scale=5;s(0.7853981634)" | bc -l
+xrandr --output eDP --brightness $1
+a_rand=`shuf -i 0-628318 -n 1`
+random_angle=`echo "scale=5;$a_rand/100000"| bc -l`
+cos_theta=`echo "scale=5;s($random_angle)" | bc -l`
+sin_theta=`echo "scale=5;c($random_angle)" | bc -l`
+echo $cos_theta $sin_theta
+next_x=$START_X
+next_y=$START_Y
+while :
+do
+	xdotool mousemove $next_x $next_y
+	clear;echo -ne $next_x $next_y
+	next_x=`echo "$next_x+($VELOCITY*$cos_theta)" | bc -l`
+	next_y=`echo "$next_y+($VELOCITY*$sin_theta)" | bc -l`
+	#clear;echo -ne $next_x $next_y
+	xdotool mousemove $next_x $next_y
+	next_x=`echo ${next_x%.*}`
+	next_y=`echo ${next_y%.*}`
+	if [ "$next_y" == "" ];then
+		next_y=0
+	fi
+	if [ "$next_x" == "" ];then
+		next_x=0
+	fi
+	echo $next_x $next_y
+	if [ "$next_x" -ge "1919" ] || [ "$next_x" -lt "0" ]
+	then
+		cos_theta=`echo "-1*$cos_theta" | bc -l`
+        fi
+	if [ "$next_y" -ge "1080" ] || [ "$next_y" -le "0" ]
+	then
+		sin_theta=`echo "-1*$sin_theta" | bc -l`
+	fi
+	#xdotool mousemove $next_x $next_y #$cos_theta $sin_theta
+	#sleep 0.1
+done
+
+

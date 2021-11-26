@@ -8,14 +8,14 @@ public:
           int len=s.size(),maxLen=0;
           for(int i=0;i<len;i++){
             string cs=findPalindromSubstr(s,i,i);//for odd length
-            cout<<cs<<endl;;
+            //cout<<cs<<endl;;
             int cl=cs.size();
             if(maxLen<cl){
               maxLen=cl;
               ans=cs;
             }
             cs=findPalindromSubstr(s,i,i+1);//for even length
-            cout<<cs<<endl;
+            //cout<<cs<<endl;
             cl=cs.size();
             if(maxLen<cl){
               maxLen=cl;

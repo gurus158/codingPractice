@@ -13,10 +13,10 @@ public:
         int maxReach=1;
         int l=nums.size();
         while(i<nums.size()){
-            if(nums[i]==0&&i==maxReach&&i<l-1)
+            if(nums[i]==0 && i==maxReach && i<l-1)
                 return false;
             j=i;
-            if(nums[i]==0&&i<maxReach)
+            if(nums[i]==0 && i<maxReach)
                  j=maxReach;
             maxReach=max(maxReach,min(j+nums[j],l-1));
             i++;
