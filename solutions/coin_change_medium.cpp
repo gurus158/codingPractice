@@ -29,7 +29,7 @@ public:
 };
 
 int main(){
-  vector<int> coins={100,2,3,5,7};
+  vector<int> coins={800,20,2189,2000};
   Solution s;
-  cout<<s.coinChange(coins,11);
+  cout<<s.coinChange(coins,128);
 }

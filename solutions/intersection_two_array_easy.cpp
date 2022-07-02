@@ -27,8 +27,8 @@ public:
 };
 int main(){
   Solution s;
-  vector<int> v1={1,2,3,2};
-  vector<int> v2={5,2,3,3};
+  vector<int> v1={1,2,3,4,2};
+  vector<int> v2={1,3,5,6,7,2};
   vector<int> res=s.intersection(v1,v2);
   for(auto i : res){
     cout<<i<<" ";
