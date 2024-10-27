@@ -18,6 +18,3 @@ vector<int> height={1,1};
 cout<<s.maxArea(height);
 
 }
-
-
-//sajidmo1313@gmail.com,ravikis1313@gmail.com,rajsm1313@gmail.com,priyankagm1313@gmail.com,priyakm1313@gmail.com,sajidmo1313@yahoo.com,ravikis1313@yahoo.com,rajsm1313@yahoo.com,priyankagm1313@yahoo.com,priyakm1313@yahoo.com,vinaysha1313@gmail.com,rahuldongra1313@gmail.com,manpresingh3@gmail.com
